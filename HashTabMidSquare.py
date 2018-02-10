@@ -28,11 +28,17 @@ for f in range(len(lista)):
     if has[k] is None:
         has[k] = lista[f]
     else:
-        for t in range(lenhas):
+        for t in range(k+1, lenhas):
             if has[t] is None:
                 has[t] = lista[f]
                 break
+            if t == lenhas and has[k] is not None:
+                for c in range(lenhas):
+                    if has[t] is None:
+                        has[t] = lista[f]
+                        break
 print(has)
 for jk in range(lenhas):
     if has[jk] is not None:
         print("Chave: %s\nElemento: %s" % (jk, has[jk]))
+input("Aperte Enter para finalizar")
